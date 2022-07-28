@@ -41,6 +41,29 @@ public class BinarySearch {
         b1.root.right.left=new Node(63);
         b1.root.right.left=new Node(67);
 
-        b1.inorder((b1.root));
+        b1.inorder(b1.root);
+        b1.searchnode(b1.root,63);
+        System.out.println("element search " +flag);
+
+
+    }
+    static boolean flag =false;
+    private void searchnode(Node temp, int i) {
+
+        if(root==null){
+            System.out.println("tree is empty");
+        }else{
+            if(temp.data==i){
+                flag=true;
+                return;
+
+            }
+            if(flag==false && temp.left !=null){
+                searchnode(temp.left,i);
+            }
+            if(flag==false && temp.right !=null){
+                searchnode(temp.right,i);
+            }
+        }
     }
 }
